@@ -1,0 +1,48 @@
+body{
+	background-color: #9EB1C4;
+	font-family: 'Open Sans', sans-serif;
+}
+h2{
+	margin: 0px 0px 5px 0px;
+	padding: 0px;
+}
+
+p{
+	margin-top: 0px;
+	margin-bottom: 10px;
+	font-size: 14px;
+}
+
+.ToDo{
+	background-color: #FFFFFF;
+	padding: 20px;
+	border-radius: 5px;
+	width: 250px;
+	margin: 0 auto;
+	margin-top: 200px;
+}
+
+#itemDescription{
+	padding: 5px;
+	border-radius: 5px;
+	border: 1px solid lightgray;
+	font-size: 14px;
+}
+
+#addButton{
+	padding: 5px 10px;
+	border-radius: 5px;
+	outline: none;
+	border: 1px solid #73A7C4;
+	background-color: #73A7C4;
+	color: #FFFFFF;
+	font-size: 14px;
+}
+
+ol{
+	padding-left: 20px;
+}
+
+.do{
+	display: none;
+}
