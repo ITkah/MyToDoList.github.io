@@ -3,7 +3,6 @@ $(document).ready(function(){
 	var $newItemForm = $('#newItemForm');
 	var $textInput = $('input:text');
 
-
 	$newItemForm.on('submit', function(e){
 		e.preventDefault();
 		var newText = $('input:text').val();
@@ -12,15 +11,12 @@ $(document).ready(function(){
 
 
 		$('li').on('click', function(){
-			$(this).fadeOut(700);
+			$(this).fadeOut(600);
 			$(this).css({
 				"text-decoration": "line-through"
 			});
 		});
 
-		$('li').on('dblclick', function(){
-			$(this).fadeOut(700);
-		});
 	});
 
 });
