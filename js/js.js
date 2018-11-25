@@ -12,6 +12,7 @@ $(document).ready(function(){
 
 
 		$('li').on('click', function(){
+			$(this).fadeOut(700);
 			$(this).css({
 				"text-decoration": "line-through"
 			});

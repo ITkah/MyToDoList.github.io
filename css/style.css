@@ -8,21 +8,22 @@ h2{
 }
 
 p{
-	margin-top: 0px;
-	margin-bottom: 10px;
+	margin: 5px 0px;
 	font-size: 14px;
 }
+
 
 .ToDo{
 	background-color: #FFFFFF;
 	padding: 20px;
 	border-radius: 5px;
-	width: 250px;
+	width: 260px;
 	margin: 0 auto;
 	margin-top: 200px;
 }
 
 #itemDescription{
+	margin-top: 10px;
 	padding: 5px;
 	border-radius: 5px;
 	border: 1px solid lightgray;
@@ -36,7 +37,7 @@ p{
 	border: 1px solid #73A7C4;
 	background-color: #73A7C4;
 	color: #FFFFFF;
-	font-size: 14px;
+	font-size: 13.5px;
 }
 
 ol{
