@@ -2,13 +2,17 @@ $(document).ready(function(){
 
 	var $newItemForm = $('#newItemForm');
 	var $textInput = $('input:text');
+	var $delete = $('.filter');
+
+	$delete.hide();
 
 	$newItemForm.on('submit', function(e){
 		e.preventDefault();
 		var newText = $('input:text').val();
 
-		$('ol').append('<li>' + newText + '</li>');
+		$delete.show();
 
+		$('ol').append('<li>' + newText + '</li>');
 
 		$('li').on('click', function(){
 			$(this).fadeOut(600);
@@ -17,6 +21,15 @@ $(document).ready(function(){
 			});
 		});
 
+		$('.filter').click( function(){
+			$('li').fadeOut(600);
+			$('li').css({
+				"text-decoration": "line-through"
+			});
+			$(this).fadeOut(600);
+		});
 	});
 
 });
+
+

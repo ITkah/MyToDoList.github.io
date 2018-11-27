@@ -45,3 +45,12 @@ ol{
 .do{
 	display: none;
 }
+
+.filter{
+	background-color: #C4585C;
+	padding: 5px 10px;
+	border-radius: 5px;
+	color: #FFFFFF;
+	outline: none;
+	border: 1px solid #C4585C;
+}
