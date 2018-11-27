@@ -1,7 +1,6 @@
 $(document).ready(function(){
 
 	var $newItemForm = $('#newItemForm');
-	var $textInput = $('input:text');
 	var $delete = $('.filter');
 
 	$delete.hide();
@@ -10,19 +9,38 @@ $(document).ready(function(){
 		e.preventDefault();
 		var newText = $('input:text').val();
 
+		if(newText.length==0){
+			alert('Пусто');
+			console.log(newText.length);
+			return;
+		}
+
 		$delete.show();
 
 		$('ol').append('<li>' + newText + '</li>');
 
+		if($('ol').children().length >=11){
+			alert('Деловой ты однако, жми ок и продолжай:)');
+		}
+
 		$('li').on('click', function(){
-			$(this).fadeOut(600);
+			$(this).fadeOut(600, function(){
+				$(this).remove();
+			});
 			$(this).css({
 				"text-decoration": "line-through"
 			});
+
+			if($('ol').children().length <=2){
+			$delete.hide();
+			}
+
 		});
 
 		$('.filter').click( function(){
-			$('li').fadeOut(600);
+			$('li').fadeOut(600, function(){
+				$(this).remove();
+			});
 			$('li').css({
 				"text-decoration": "line-through"
 			});
