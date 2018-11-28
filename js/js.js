@@ -19,10 +19,6 @@ $(document).ready(function(){
 
 		$('ol').append('<li>' + newText + '</li>');
 
-		if($('ol').children().length >=11){
-			alert('Деловой ты однако, жми ок и продолжай:)');
-		}
-
 		$('li').on('click', function(){
 			$(this).fadeOut(600, function(){
 				$(this).remove();
