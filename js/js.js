@@ -13,9 +13,9 @@ formDo.addEventListener("submit", function(e){
 	
 	arrDo.push(output);
 
-	localStorage.setItem('output', JSON.stringify(arrDo));
+	localStorage.setItem('output',JSON.stringify(arrDo));
 
-	let localOutput = localStorage.getItem('output', JSON.parse(arrDo));
+	let localOutput = JSON.parse(localStorage.getItem('output'));
 		
 	listBox.innerHTML += "<li>" + localOutput + "</li>";
 	
@@ -27,8 +27,8 @@ formDo.addEventListener("submit", function(e){
 	deletItem(itemDinamic);	
 });
 	
-var localOutput = localStorage.getItem('output');
-listBox.innerHTML += "<li>" + localOutput + "</li>";
+// var localOutput = localStorage.getItem('output');
+// listBox.innerHTML += "<li>" + localOutput + "</li>";
 
 
 function deletItem (itemDinamic) {
