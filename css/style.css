@@ -1,49 +1,66 @@
 body{
 	background-color: #9EB1C4;
 	font-family: 'Open Sans', sans-serif;
-}
-h2{
-	margin: 0px 0px 5px 0px;
-	padding: 0px;
+	margin: 0;
+	padding: 0;
 }
 
-p{
-	margin: 5px 0px;
-	font-size: 14px;
+h1,h2,h3,h4,h5,p {
+	margin: 0;
 }
 
+.title-todo {
+	font-size: 1.5rem;
+	margin-bottom: 5px;
+}
 
-.ToDo{
-	background-color: #FFFFFF;
+.info-todo {
+	font-size: 1rem;
+	margin-bottom: 15px;
+}
+
+.to-do-wrapper {
+	display: flex;
+	justify-content: center;
+	height: 100vh;
+	align-items: center;
+}
+
+.to-do{
 	padding: 20px;
 	border-radius: 5px;
-	width: 260px;
-	margin: 0 auto;
-	margin-top: 200px;
+	background-color: #FFF;
 }
 
-#itemDescription{
-	margin-top: 10px;
+.form {
+	display: flex;
+}
+
+.item-input{
 	padding: 5px;
 	border-radius: 5px;
 	border: 1px solid lightgray;
+	text-transform: capitalize;
+	font-size: 1rem;
+	margin-right: 10px;
 }
 
-#addButton{
+.add-button{
 	padding: 5px 10px;
 	border-radius: 5px;
 	outline: none;
 	border: 1px solid #73A7C4;
 	background-color: #73A7C4;
-	color: #FFFFFF;
+	color: #FFF;
+	text-transform: capitalize;
 }
 
-ol{
+.list-wrap{
 	padding-left: 20px;
 }
 
-.do{
-	display: none;
+.list-wrap li {
+	text-transform: capitalize;
 }
 
 .filter{
@@ -53,4 +70,14 @@ ol{
 	color: #FFFFFF;
 	outline: none;
 	border: 1px solid #C4585C;
+}
+
+.none {
+	display: none;
+}
+
+.delete-li {
+	text-decoration: line-through;
+	opacity: .8;
+	transition: .2s;
 }

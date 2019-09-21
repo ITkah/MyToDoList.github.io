@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,21 +8,23 @@
 	<title>ToDoList</title>
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=cyrillic" rel="stylesheet">
 </head>
+
 <body>
-	<div class="ToDo">
-		<h2>To Do List</h2>
-		<p>Pls write your affairs.</p>
-			<form id="newItemForm">
-					<input type="text" id="itemDescription" placeholder="Write here..."/ minlength="1">
-					<input type="submit" id="addButton" value="add"/>
+	<div class="to-do-wrapper">
+		<div class="to-do">
+			<h2 class="title-todo">To Do List</h2>
+			<p class="info-todo">Pls write your affairs.</p>
+			<form id="newItemForm" class="form">
+				<input type="text" id="itemDescription" class="item-input" placeholder="Write here..." required>
+				<button type="submit" class="add-button" id="addButton">add</button>
 			</form>
-			<ol>
-			 	<li class="do"></li>
+			<ol class="list-wrap">
 			</ol>
-			<button class="filter">Deleted All</button>
+			<button class="filter none">Deleted All</button>
+		</div>
 	</div>
 
-	<script src="js/jquery.min.js"></script>
-	<script src="js/js.js"></script>
+	<script src="js/js.js" defer></script>
 </body>
+
 </html>

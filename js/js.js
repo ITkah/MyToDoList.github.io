@@ -1,49 +1,53 @@
-$(document).ready(function(){
+var formDo = document.getElementById("newItemForm"),
+	delet = document.querySelector(".filter"),
+	listBox = document.querySelector(".list-wrap"),
+	inputUser = document.getElementById("itemDescription");
 
-	var $newItemForm = $('#newItemForm');
-	var $delete = $('.filter');
+let arrDo = [];
+	
+formDo.addEventListener("submit", function(e){
+	e.preventDefault();
+	
+	let itemDinamic = document.getElementsByTagName("li"), //с by возвращяет динамику
+		output = inputUser.value;
+	
+	arrDo.push(output);
 
-	$delete.hide();
+	localStorage.setItem('output', JSON.stringify(arrDo));
 
-	$newItemForm.on('submit', function(e){
-		e.preventDefault();
-		var newText = $('input:text').val();
-
-		if(newText.length==0){
-			alert('Пусто');
-			console.log(newText.length);
-			return;
-		}
-
-		$delete.show();
-
-		$('ol').append('<li>' + newText + '</li>');
-
-		$('li').on('click', function(){
-			$(this).fadeOut(600, function(){
-				$(this).remove();
-			});
-			$(this).css({
-				"text-decoration": "line-through"
-			});
-
-			if($('ol').children().length <=2){
-			$delete.hide();
-			}
-
-		});
-
-		$('.filter').click( function(){
-			$('li').fadeOut(600, function(){
-				$(this).remove();
-			});
-			$('li').css({
-				"text-decoration": "line-through"
-			});
-			$(this).fadeOut(600);
-		});
-	});
-
+	let localOutput = localStorage.getItem('output', JSON.parse(arrDo));
+		
+	listBox.innerHTML += "<li>" + localOutput + "</li>";
+	
+	inputUser.value = '';
+	inputUser.focus();
+	
+	delet.classList.add("none");
+	
+	deletItem(itemDinamic);	
 });
+	
+var localOutput = localStorage.getItem('output');
+listBox.innerHTML += "<li>" + localOutput + "</li>";
 
 
+function deletItem (itemDinamic) {
+	[].forEach.call(itemDinamic, function(todo){
+		todo.addEventListener("click", function () {
+			this.classList.add("delete-li");
+			setTimeout(() => {
+				this.parentNode.removeChild(this);
+			},500);
+		});
+		if(itemDinamic.length >= 2) {
+			delet.classList.remove("none");
+		}
+	});
+}
+
+delet.addEventListener("click", function() {
+	this.classList.add("none");
+	listBox.innerHTML = '';
+	localStorage.clear();
+	inputUser.value = '';
+});
