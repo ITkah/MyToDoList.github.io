@@ -15,10 +15,11 @@ formDo.addEventListener("submit", function (event) {
 
 	localStorage.setItem('output', JSON.stringify(arrDo));
 
-	displayTodo();
+	listBox.innerHTML += "<li>" + output + "</li>";
+
 	deletItem();
 	clearInput();
-
+	
 });
 
 delet.addEventListener("click", function () {
@@ -31,7 +32,7 @@ delet.addEventListener("click", function () {
 });
 
 function displayTodo() {
-	
+
 	let localOutput = JSON.parse(localStorage.getItem('output')),
 		toDoList = '';
 	
@@ -39,8 +40,8 @@ function displayTodo() {
 		toDoList += "<li>" + localOutput[i] + "</li>";
 	}
 
-	listBox.innerHTML = toDoList;
-	
+	listBox.innerHTML = toDoList;	
+
 }
 
 function deletItem() {
@@ -73,3 +74,5 @@ function clearLs() {
 	localStorage.clear();
 
 }
+
+displayTodo();
