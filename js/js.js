@@ -19,16 +19,16 @@ formDo.addEventListener("submit", function(e){
 		
 	listBox.innerHTML += "<li>" + localOutput + "</li>";
 	
-	inputUser.value = '';
-	inputUser.focus();
-	
-	delet.classList.add("none");
-	
+	clearInput();
 	deletItem(itemDinamic);	
 });
 	
-
-
+delet.addEventListener("click", function() {
+	this.classList.add("none");
+	listBox.innerHTML = '';
+	clearLs();
+	inputUser.value = '';
+});
 
 function deletItem (itemDinamic) {
 	[].forEach.call(itemDinamic, function(todo){
@@ -44,9 +44,11 @@ function deletItem (itemDinamic) {
 	});
 }
 
-delet.addEventListener("click", function() {
-	this.classList.add("none");
-	listBox.innerHTML = '';
-	localStorage.clear();
+function clearInput () {
 	inputUser.value = '';
-});
+	inputUser.focus();
+}
+
+function clearLs () {
+	localStorage.clear();
+}
