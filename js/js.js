@@ -4,51 +4,61 @@ var formDo = document.getElementById("newItemForm"),
 	inputUser = document.getElementById("itemDescription");
 
 let arrDo = [];
-	
-formDo.addEventListener("submit", function(e){
+
+formDo.addEventListener("submit", function (e) {
 	e.preventDefault();
-	
+
 	let itemDinamic = document.getElementsByTagName("li"), //с by возвращяет динамику
 		output = inputUser.value;
-	
+
 	arrDo.push(output);
 
 	localStorage.setItem('output', JSON.stringify(arrDo));
 
 	let localOutput = JSON.parse(localStorage.getItem('output'));
-		
-	listBox.innerHTML += "<li>" + localOutput + "</li>";
-	
+
+	displayTodo(localOutput);
+
 	clearInput();
-	deletItem(itemDinamic);	
+	deletItem(itemDinamic);
+
 });
-	
-delet.addEventListener("click", function() {
+
+
+delet.addEventListener("click", function () {
 	this.classList.add("none");
 	listBox.innerHTML = '';
 	clearLs();
 	inputUser.value = '';
 });
 
-function deletItem (itemDinamic) {
-	[].forEach.call(itemDinamic, function(todo){
+function displayTodo(todoArr) {
+	let toDoList = '';
+	for (let i = 0; i < todoArr.length; i++) {
+		toDoList += "<li>" + todoArr[i] + "</li>";
+	}
+	listBox.innerHTML = toDoList;
+}
+
+function deletItem(itemDinamic) {
+	[].forEach.call(itemDinamic, function (todo) {
 		todo.addEventListener("click", function () {
 			this.classList.add("delete-li");
 			setTimeout(() => {
 				this.parentNode.removeChild(this);
-			},500);
+			}, 500);
 		});
-		if(itemDinamic.length >= 2) {
+		if (itemDinamic.length >= 2) {
 			delet.classList.remove("none");
 		}
 	});
 }
 
-function clearInput () {
+function clearInput() {
 	inputUser.value = '';
 	inputUser.focus();
 }
 
-function clearLs () {
+function clearLs() {
 	localStorage.clear();
 }
