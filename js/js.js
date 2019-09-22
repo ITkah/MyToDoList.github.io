@@ -8,22 +8,16 @@ let arrDo = [];
 formDo.addEventListener("submit", function (e) {
 	e.preventDefault();
 
-	let itemDinamic = document.getElementsByTagName("li"), //с by возвращяет динамику
-		output = inputUser.value;
+	let output = inputUser.value;
 
 	arrDo.push(output);
 
 	localStorage.setItem('output', JSON.stringify(arrDo));
 
-	let localOutput = JSON.parse(localStorage.getItem('output'));
-
-	displayTodo(localOutput);
-
+	displayTodo();
 	clearInput();
-	deletItem(itemDinamic);
-
+	deletItem();
 });
-
 
 delet.addEventListener("click", function () {
 	this.classList.add("none");
@@ -32,15 +26,20 @@ delet.addEventListener("click", function () {
 	inputUser.value = '';
 });
 
-function displayTodo(todoArr) {
-	let toDoList = '';
-	for (let i = 0; i < todoArr.length; i++) {
-		toDoList += "<li>" + todoArr[i] + "</li>";
+function displayTodo() {
+	let localOutput = JSON.parse(localStorage.getItem('output')),
+		toDoList = '';
+	
+	for (let i = 0; i < localOutput.length; i++) {
+		toDoList += "<li>" + localOutput[i] + "</li>";
 	}
+
 	listBox.innerHTML = toDoList;
 }
 
-function deletItem(itemDinamic) {
+
+function deletItem() {
+	let itemDinamic = document.getElementsByTagName("li");
 	[].forEach.call(itemDinamic, function (todo) {
 		todo.addEventListener("click", function () {
 			this.classList.add("delete-li");
