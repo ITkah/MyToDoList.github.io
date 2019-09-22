@@ -5,8 +5,9 @@ var formDo = document.getElementById("newItemForm"),
 
 let arrDo = [];
 
-formDo.addEventListener("submit", function (e) {
-	e.preventDefault();
+formDo.addEventListener("submit", function (event) {
+
+	event.preventDefault();
 
 	let output = inputUser.value;
 
@@ -15,18 +16,22 @@ formDo.addEventListener("submit", function (e) {
 	localStorage.setItem('output', JSON.stringify(arrDo));
 
 	displayTodo();
-	clearInput();
 	deletItem();
+	clearInput();
+
 });
 
 delet.addEventListener("click", function () {
+
 	this.classList.add("none");
 	listBox.innerHTML = '';
 	clearLs();
 	inputUser.value = '';
+
 });
 
 function displayTodo() {
+	
 	let localOutput = JSON.parse(localStorage.getItem('output')),
 		toDoList = '';
 	
@@ -35,11 +40,13 @@ function displayTodo() {
 	}
 
 	listBox.innerHTML = toDoList;
+	
 }
 
-
 function deletItem() {
+
 	let itemDinamic = document.getElementsByTagName("li");
+
 	[].forEach.call(itemDinamic, function (todo) {
 		todo.addEventListener("click", function () {
 			this.classList.add("delete-li");
@@ -51,13 +58,18 @@ function deletItem() {
 			delet.classList.remove("none");
 		}
 	});
+
 }
 
 function clearInput() {
+
 	inputUser.value = '';
 	inputUser.focus();
+
 }
 
 function clearLs() {
+	
 	localStorage.clear();
+
 }
