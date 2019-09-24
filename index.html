@@ -14,17 +14,21 @@
 		<div class="to-do">
 			<h2 class="title-todo">To Do List</h2>
 			<p class="info-todo">Pls write your affairs.</p>
-			<form id="newItemForm" class="form">
-				<input type="text" id="itemDescription" class="item-input" placeholder="Write here..." required>
-				<button type="submit" class="add-button" id="addButton">add</button>
+
+			<form class="form">
+				<input type="text" class="todo-input" placeholder="Write here..." required>
+				<button type="submit" class="add-button">add</button>
 			</form>
+
 			<ol class="list-wrap">
+				<!-- todos will be here -->
 			</ol>
-			<button class="filter none">Deleted All</button>
+
+			<button class="delete-button none">Deleted All</button>
 		</div>
 	</div>
 
-	<script src="js/js.js" defer></script>
+	<script src="js/index.js" defer></script>
 </body>
 
 </html>

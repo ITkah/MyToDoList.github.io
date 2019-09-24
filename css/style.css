@@ -1,83 +1,88 @@
-body{
-	background-color: #9EB1C4;
-	font-family: 'Open Sans', sans-serif;
-	margin: 0;
-	padding: 0;
+body {
+  background-color: #9eb1c4;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-h1,h2,h3,h4,h5,p {
-	margin: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
 }
 
 .title-todo {
-	font-size: 1.5rem;
-	margin-bottom: 5px;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
 }
 
 .info-todo {
-	font-size: 1rem;
-	margin-bottom: 15px;
+  font-size: 1rem;
+  margin-bottom: 15px;
 }
 
 .to-do-wrapper {
-	display: flex;
-	justify-content: center;
-	height: 100vh;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
 }
 
-.to-do{
-	padding: 20px;
-	border-radius: 5px;
-	background-color: #FFF;
+.to-do {
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #fff;
 }
 
 .form {
-	display: flex;
+  display: flex;
 }
 
-.item-input{
-	padding: 5px;
-	border-radius: 5px;
-	border: 1px solid lightgray;
-	text-transform: capitalize;
-	font-size: 1rem;
-	margin-right: 10px;
+.todo-input {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  text-transform: capitalize;
+  font-size: 1rem;
+  margin-right: 10px;
 }
 
-.add-button{
-	padding: 5px 10px;
-	border-radius: 5px;
-	outline: none;
-	border: 1px solid #73A7C4;
-	background-color: #73A7C4;
-	color: #FFF;
-	text-transform: capitalize;
+.add-button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #73a7c4;
+  background-color: #73a7c4;
+  color: #fff;
+  text-transform: capitalize;
 }
 
-.list-wrap{
-	padding-left: 20px;
+.list-wrap {
+  padding-left: 20px;
 }
 
 .list-wrap li {
-	text-transform: capitalize;
+  text-transform: capitalize;
 }
 
-.filter{
-	background-color: #C4585C;
-	padding: 5px 10px;
-	border-radius: 5px;
-	color: #FFFFFF;
-	outline: none;
-	border: 1px solid #C4585C;
+.delete-button {
+  background-color: #c4585c;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #ffffff;
+  outline: none;
+  border: 1px solid #c4585c;
 }
 
 .none {
-	display: none;
+  display: none;
 }
 
 .delete-li {
-	text-decoration: line-through;
-	opacity: .8;
-	transition: .2s;
+  text-decoration: line-through;
+  opacity: 0.8;
+  transition: 0.2s;
 }
