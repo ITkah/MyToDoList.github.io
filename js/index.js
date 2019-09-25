@@ -1,7 +1,8 @@
-const form = document.querySelector('.form');
-const deleteButton = document.querySelector('.delete-button');
-const htmlTodoList = document.querySelector('.list-wrap');
-const todoInput = document.querySelector('.todo-input');
+const form = document.querySelector('.form'),
+      deleteButton = document.querySelector('.delete-button'),
+      htmlTodoList = document.querySelector('.list-wrap'),
+      todoInput = document.querySelector('.todo-input'),
+      liTodoItem = document.getElementsByTagName('li');
 
 // Define the key to work with local storage.
 const localStorageKey = 'output';
@@ -19,18 +20,20 @@ const ls = {
   },
 };
 
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
 
   // If todos in localStorage is null, assign [].
   const storedTodos = ls.get(localStorageKey) || [];
   const newTodo = todoInput.value;
 
-  // Update list in storage with already stored todos + new todo.
+  // Update list in storage with already stored todos + new todo. 
   ls.set(localStorageKey, [...storedTodos, newTodo]);
 
   // Add todos as children of htmlTodoList (<ol>).
   htmlTodoList.innerHTML += `<li>${newTodo}</li>`;
+
+  deleteItem();
 
   // Show 'Delete all' button and clear input.
   deleteButton.classList.remove('none');
@@ -54,6 +57,16 @@ const clearInput = () => {
   todoInput.focus();
 };
 
+function deleteItem(){
+  const liTodoItem = document.getElementsByTagName('li');
+
+  [].forEach.call(liTodoItem,function(elementLi){
+    elementLi.addEventListener('click', function () {
+      console.log("hello");
+    });
+  });
+}
+
 const displayTodos = () => {
   const storedTodos = ls.get(localStorageKey) || [];
 
@@ -66,6 +79,7 @@ const displayTodos = () => {
   storedTodos.forEach((todo) => {
     htmlTodoList.innerHTML += `<li>${todo}</li>`;
   });
+
 };
 
 displayTodos();
