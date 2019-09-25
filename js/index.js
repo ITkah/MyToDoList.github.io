@@ -1,8 +1,7 @@
 const form = document.querySelector('.form'),
       deleteButton = document.querySelector('.delete-button'),
       htmlTodoList = document.querySelector('.list-wrap'),
-      todoInput = document.querySelector('.todo-input'),
-      liTodoItem = document.getElementsByTagName('li');
+      todoInput = document.querySelector('.todo-input');
 
 // Define the key to work with local storage.
 const localStorageKey = 'output';
@@ -33,6 +32,7 @@ form.addEventListener('submit', (e) => {
   // Add todos as children of htmlTodoList (<ol>).
   htmlTodoList.innerHTML += `<li>${newTodo}</li>`;
 
+  //Call deleteItem
   deleteItem();
 
   // Show 'Delete all' button and clear input.
@@ -62,7 +62,7 @@ function deleteItem(){
 
   [].forEach.call(liTodoItem,function(elementLi){
     elementLi.addEventListener('click', function () {
-      console.log("hello");
+      this.parentNode.removeChild(this);
     });
   });
 }
@@ -79,6 +79,9 @@ const displayTodos = () => {
   storedTodos.forEach((todo) => {
     htmlTodoList.innerHTML += `<li>${todo}</li>`;
   });
+
+  //Call deleteItem
+  deleteItem();
 
 };
 
