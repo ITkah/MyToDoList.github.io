@@ -1,25 +1,24 @@
-
 (function () {
 
-  const list = document.querySelector('.list-wrap'),
-        form = document.querySelector('.form'),
+  const outputTodoItem = document.querySelector('.list-wrap'),
+        mainForm = document.querySelector('.form'),
         deleteButton = document.querySelector('.delete-button'),
-        item = document.querySelector('.todo-input');
+        inputCreateNewToDo = document.querySelector('.todo-input');
 
-  form.addEventListener('submit', function (e) {
+  mainForm.addEventListener('submit', function (e) {
     e.preventDefault();
-    list.innerHTML += '<li>' + item.value + '</li>';
+    outputTodoItem.innerHTML += '<li>' + inputCreateNewToDo.value + '</li>';
     store();
     clearInput();
   })
 
   deleteButton.addEventListener('click', function() {
     localStorage.clear();
-    list.innerHTML = '';
+    outputTodoItem.innerHTML = '';
     clearInput();
   });
 
-  list.addEventListener('click', function (e) {
+  outputTodoItem.addEventListener('click', function (e) {
     let t = e.target;
     if (t.classList.contains('delete-li')) {
       t.parentNode.removeChild(t);
@@ -30,20 +29,20 @@
   }, false)
 
   function store() {
-    window.localStorage.myitems = list.innerHTML;
+    window.localStorage.myitems = outputTodoItem.innerHTML;
   }
 
   function clearInput () {
-    item.value = '';
-    item.focus();
+    inputCreateNewToDo.value = '';
+    inputCreateNewToDo.focus();
   };
 
   function getValues() {
     let storedValues = window.localStorage.myitems;
     if (!storedValues) {
-      list.innerHTML = '';
+      outputTodoItem.innerHTML = '';
     } else {
-      list.innerHTML = storedValues;
+      outputTodoItem.innerHTML = storedValues;
     }
   }
   getValues();
