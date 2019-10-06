@@ -66,7 +66,7 @@ p {
 
 .list-wrap li {
   text-transform: capitalize;
-  margin-bottom: 5px;
+  padding-bottom: 10px;
 }
 
 .delete-button {
