@@ -66,6 +66,7 @@ p {
 
 .list-wrap li {
   text-transform: capitalize;
+  margin-bottom: 10px;
 }
 
 .delete-button {
@@ -83,6 +84,20 @@ p {
 
 .delete-li {
   text-decoration: line-through;
-  opacity: 0.8;
-  transition: 0.2s;
+  opacity: .8;
+  position: relative;
+  transition: .3s;
+}
+
+.delete-li::after{
+  content: '';
+  background: url(../img/trash.svg) no-repeat;
+  background-size:22px;
+  width: 22px;
+  height: 22px;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 3px;
+  transition: .3s;
 }
